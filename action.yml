@@ -1,0 +1,16 @@
+# action.yml
+name: 'C++ build Hello World'
+description: 'Compile the source file and build a binary and record the time'
+inputs:
+  source-to-build:  # id of input
+    description: 'source file to be compiled and build'
+    required: true
+    default: 'main.cpp'
+outputs:
+  time: # id of output
+    description: 'The time build process completed'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source-to-build }}
